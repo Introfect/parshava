@@ -45,22 +45,16 @@ export function Table () {
 
   
   return (
-    <Card className="h-full w-full">
+    <Card className="h-full w-full p-2">
       <CardHeader floated={false} shadow={false} className="rounded-none">
-        <div className="mb-4 flex flex-col justify-between gap-8 md:flex-row md:items-center">
-          <div>
-            <Typography variant="h5" color="blue-gray">
-              Recent Transactions
+        <div className="mb-4 flex flex-col justify-center text-center items-center gap-8 md:flex-row md:items-center">
+          <div className='justify-center text-center items-center'>
+            <Typography variant="h6" color="blue-gray">
+              Recent Dockets
             </Typography>
             <Typography color="gray" className="mt-1 font-normal">
-              These are details about the last transactions
+              These are details about last docket creations
             </Typography>
-          </div>
-          <div className="flex w-full shrink-0 gap-2 md:w-max">
-            
-            <Button className="flex items-center gap-3" size="sm">
-              <ArrowDownTrayIcon strokeWidth={2} className="h-4 w-4" /> Download
-            </Button>
           </div>
         </div>
       </CardHeader>

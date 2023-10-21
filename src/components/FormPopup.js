@@ -69,8 +69,8 @@ const {mutate:createDocket}=useMutation({
     if(err instanceof AxiosError) {
       if(err.response?.status === 409){
         return toast({
-          title:'Subbredit with this name already exists',
-          description:'Please choose a different name fot your subbredit',
+          title:'Docket with this name already exists',
+          description:'Please choose a different name fot your Docket',
           variant:'destructive'
         })
       }
@@ -78,7 +78,7 @@ const {mutate:createDocket}=useMutation({
       if(err.response?.status === 422){
         return toast({
           title:'Inavlid validation ',
-          description:'Please choose a different name fot your subbredit',
+          description:'Please choose a different name fot your docket',
           variant:'destructive'
         })
       }
@@ -86,7 +86,7 @@ const {mutate:createDocket}=useMutation({
     }
     toast({
       title:'There was an error',
-      description:'could not create subbredit',
+      description:{err},
       variant:'destructive'
     })
 
@@ -103,23 +103,29 @@ onSuccess:()=>{
 })
     return (
     <div className='fixed inset-0 bg-zinc-900/20 z-10'>
-    <div className='constainer flex items-center h-full max-w-lg mx-auto'>
-      <div className='relative bg-white w-full h-fit py-20 rounded-lg'>
+    <div className='constainer flex items-center h-full max-w-lg mx-auto p-5'>
+      <div className='relative bg-white w-full h-fit py-20 rounded-lg p-4'>
         <div className='absolute top-4 right-4'>
           <div className='rounded-full w-6 z-30 cursor-pointer text-black' onClick={()=>setShow(false)}>X</div>
 
         </div>
+    
         <div className='flex flex-col rounded-md '>
+        <span className='text-black justify-center items-center text-center text-lg font-semibold'>Create Docket</span>
+        <p class="text-red-500 text-xs text-center italic">Please fill out all the field.</p>
+          
+       
+        
         <form class="w-full max-w-lg">
   <div class="flex flex-wrap -mx-3 mb-6">
-    <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+    <div class="w-full px-3 mb-6 md:mb-0 spacke-y-4">
       <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-first-name">
         Name
       </label>
       <input
        value={name} 
        onChange={(e)=>setName(e.target.value)} class="appearance-none block w-full bg-gray-200 text-gray-700 border border-red-500 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" id="grid-first-name" type="text" placeholder="Jane"/>
-      <p class="text-red-500 text-xs italic">Please fill out all the field.</p>
+      
     </div>
     <div class="w-full md:w-1/2 px-3">
       <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-last-name">
@@ -141,7 +147,7 @@ onSuccess:()=>{
     </div>
     <div class="w-full md:w-1/2 px-3">
       <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-last-name">
-        No of Hours Worked
+        Hour
       </label>
       <input
          value={hour} 
@@ -175,7 +181,8 @@ onSuccess:()=>{
         
     />
       <SidebarFilter
-        type="Supplier"
+      
+      type="PO"
         size={"small"}
         single={true}
         dropDown={pon}
@@ -186,28 +193,14 @@ onSuccess:()=>{
 
       </div>
     </div>
-    <div class="w-full md:w-1/3 px-3 mb-6 md:mb-0">
-      <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-state">
-        State
-      </label>
-      <div class="relative">
-        <select class="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-state">
-          <option>New Mexico</option>
-          <option>Missouri</option>
-          <option>Texas</option>
-        </select>
-        <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
-          <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
-        </div>
-      </div>
-    </div>
 
   </div>
 </form>
 
         </div>
-        <div className='flex justify-end gap-4 bg-black'>
+        <div className='flex item-center justify-center'>
          <button
+         className='bg-black p-2 rounded-xl'
          disabled={but}
          onClick={createDocket}
          
