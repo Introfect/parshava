@@ -1,0 +1,84 @@
+.navbarSearch{
+    background: linear-gradient(0deg, rgba(60, 60, 60, 0.85), rgba(60, 60, 60, 0.85))
+}
+
+.navbarSearchWhite {
+    background: linear-gradient(0deg, rgba(170, 170, 170, 0.6), rgba(170, 170, 170, 0.6))
+}
+
+.navbarSearchWhite::placeholder{
+    color: gray;
+}
+
+.backgroundTransparent{
+    /* background: linear-gradient(0deg, rgba(12, 140, 233, 0.9), rgba(12, 140, 233, 0.9)); */
+    background: linear-gradient(0deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.1));
+    /* box-shadow: 1px 1px 5px 5px black; */
+    /* box-sizing: border-box; */
+    /* position: relative;   */
+}
+
+/* .jobContainer::after{
+    background: linear-gradient(0deg, rgba(12, 140, 233, 0.9), rgba(12, 140, 233, 0.9));
+    content: "";
+    position: absolute;
+    right: -13px;
+    -webkit-transform: skew(-20deg);
+    -moz-transform: skew(-20deg);
+    transform: skew(-20deg);
+} */
+
+
+
+.buttonCenter{
+    position: absolute;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+
+.navbarBelowDiv{
+    min-height: calc(100vh - 8rem);
+    top: 8rem;
+    position: relative;
+}
+
+.messenger::-webkit-scrollbar {
+    display: none;
+}
+
+.candidateFilterScroll::-webkit-scrollbar{
+    width: 10px;
+}
+
+.candidateFilterScroll::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+.notification{
+    background: rgba(255, 255, 255, 0);
+}
+
+.movingElement {
+    animation: 20s slide infinite linear;
+}
+
+.movingElement:hover {
+    animation-play-state: paused;
+}
+
+@media only screen and (max-width:600px) {
+    .movingElement {
+        animation: 10s slide infinite linear;
+    }
+}
+
+@keyframes slide {
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(-100%);
+    }
+}
