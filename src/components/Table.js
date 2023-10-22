@@ -62,9 +62,9 @@ export function Table () {
         <table className="w-full min-w-max table-auto text-left">
           <thead>
             <tr>
-              {TABLE_HEAD.map((head) => (
+              {TABLE_HEAD.map((heads) => (
                 <th
-                  key={head}
+                  key={heads}
                   className="border-y border-blue-gray-100 bg-blue-gray-50/50 p-4"
                 >
                   <Typography
@@ -72,7 +72,7 @@ export function Table () {
                     color="blue-gray"
                     className="font-normal leading-none opacity-70"
                   >
-                    {head}
+                    {heads}
                   </Typography>
                 </th>
               ))}

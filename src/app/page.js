@@ -8,11 +8,6 @@ export default function Home() {
   <div>
     <CsvUploader/>
     <Table/>
-    
-
-  
-    
-
   </div>
   )
 }
