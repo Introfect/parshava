@@ -79,7 +79,7 @@ export function Table () {
             </tr>
           </thead>
           <tbody>
-            {data && data.map(
+            {data ? (data.map(
               (
                 {
                   Cname,
@@ -167,7 +167,7 @@ export function Table () {
                   </tr>
                 );
               },
-            )}
+            )):(<p>No created dockets available</p>)}
           </tbody>
         </table>
       </CardBody>
