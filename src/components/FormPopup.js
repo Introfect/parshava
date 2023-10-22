@@ -20,7 +20,7 @@ const FormPopup = ({show,setShow,supplierData,mata}) => {
     useEffect(()=>{
         const uniqueSupplier= supplierData && Array.from(new Set(supplierData))
         uniqueSupplier && setSup(uniqueSupplier)
-    },[])
+    },[supplierData])
     useEffect(()=>{
       console.log(mata,'dd')
       const PO=mata && position && mata.filter((po) =>po.Supplier===position)
@@ -95,8 +95,7 @@ onSuccess:()=>{
   queryClient.invalidateQueries({ queryKey: ['docket'] })
   setShow(false)
   return toast({
-    title: "Scheduled: Catch up",
-    description: "Friday, February 10, 2023 at 5:57 PM",
+    title: "Docket was succesfully created",
     variant:'destructive'
   })
 }
