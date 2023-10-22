@@ -2,7 +2,7 @@
 import { db } from '@/lib/db'
 import { useQuery, useQueryClient } from '@tanstack/react-query'
 import axios from 'axios'
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { PencilIcon } from "@heroicons/react/24/solid";
 import {
   ArrowDownTrayIcon,
@@ -28,14 +28,15 @@ const TABLE_HEAD = ["Name", "Start Time", "End Time", "Hour", "Rate", "Supplier"
 
 export function Table () {
   const {list}=docketGeneration()
-  const queryClient=useQueryClient()
+const [mapData,setMapData]=useState([])
 
   console.log(list,"list")
-    const {data,refetch}=useQuery({
+    const {data}=useQuery({
       queryKey:['docket'], 
         queryFn: async()=>{
             const docket=await axios.get('api/docket/get')
             const data = await docket.data;
+            data ?setMapData(data):null
             console.log(data,"docket")
       return data;
 
@@ -79,7 +80,7 @@ export function Table () {
             </tr>
           </thead>
           <tbody>
-            {data ? (data.map(
+            {mapData? (mapData.map(
               (
                 {
                   Cname,
