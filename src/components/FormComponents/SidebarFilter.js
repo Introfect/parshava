@@ -1,3 +1,4 @@
+'use client '
 import { useState } from "react";
 import { useTheme } from "@mui/material/styles";
 import OutlinedInput from "@mui/material/OutlinedInput";
